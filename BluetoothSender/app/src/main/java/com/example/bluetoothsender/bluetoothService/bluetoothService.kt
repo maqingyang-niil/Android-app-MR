@@ -7,7 +7,6 @@ import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothSocket
 import android.util.Log
 import android.content.Context
-import android.content.pm.PackageManager
 import androidx.annotation.RequiresPermission
 import java.io.IOException
 import java.util.*
@@ -28,6 +27,10 @@ class bluetoothService(private val context: Context) {
         }else{
             emptyList()
         }
+    }
+
+    fun isBluetoothEnabled(): Boolean{
+        return bluetoothAdapter?.isEnabled==true
     }
 
     @RequiresPermission(allOf = [Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN])
